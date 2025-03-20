@@ -80,8 +80,8 @@ bool checkRFID() {
   return match;
 }
 
-// Hàm kiểm tra và báo cháy
-void checkFire() {
+// Hàm kiểm tra và báo cháy + hiển thị nhiệt độ
+void checkFireAndTemp() {
   float temp = dht.readTemperature();
   if (isnan(temp)) {
     Serial.println("Lỗi đọc cảm biến nhiệt độ!");
@@ -91,6 +91,10 @@ void checkFire() {
   Serial.print("Nhiệt độ: ");
   Serial.println(temp);
 
+  // Gửi nhiệt độ lên Blynk (Virtual Pin V2)
+  Blynk.virtualWrite(V2, temp);
+
+  // Kiểm tra báo cháy
   if (temp > TEMP_THRESHOLD) {
     digitalWrite(BUZZER_PIN, HIGH);
     Blynk.notify("CẢNH BÁO: Phát hiện cháy!");
@@ -115,8 +119,8 @@ void loop() {
     digitalWrite(RELAY_PIN, LOW);
   }
 
-  // Kiểm tra báo cháy
-  checkFire();
+  // Kiểm tra báo cháy và hiển thị nhiệt độ
+  checkFireAndTemp();
 
   delay(100); // Giảm tải CPU
 }
