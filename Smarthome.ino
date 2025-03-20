@@ -3,13 +3,7 @@
 #include <DHT.h>
 #include <SPI.h>
 #include <MFRC522.h>
-
-// Thông tin WiFi và Blynk
-#define BLYNK_TEMPLATE_ID "YOUR_TEMPLATE_ID"
-#define BLYNK_TEMPLATE_NAME "SmartHome"
-#define BLYNK_AUTH_TOKEN "YOUR_AUTH_TOKEN"
-char ssid[] = "YOUR_WIFI_SSID";
-char pass[] = "YOUR_WIFI_PASSWORD";
+////////////id blynk
 
 // Định nghĩa chân
 #define LED_PIN 2        // Chân điều khiển đèn LED
