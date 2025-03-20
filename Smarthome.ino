@@ -4,7 +4,11 @@
 #include <SPI.h>
 #include <MFRC522.h>
 ////////////id blynk
-
+#define BLYNK_TEMPLATE_ID "TMPL6mZEdazNI"
+#define BLYNK_TEMPLATE_NAME "smarthome"
+#define BLYNK_AUTH_TOKEN "Your Auth Token"
+char ssid[] = "wifi"; 
+char pass[] = "123456"
 // Định nghĩa chân
 #define LED_PIN 2        // Chân điều khiển đèn LED
 #define DHT_PIN 4        // Chân cảm biến nhiệt độ DHT11
