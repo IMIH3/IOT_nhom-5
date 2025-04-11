@@ -5,8 +5,8 @@
 #include <MFRC522.h>
 
 // WiFi credentials
-const char* ssid = "minh"; // Thay bằng SSID WiFi của bạn
-const char* password = "123"; // Thay bằng mật khẩu WiFi của bạn
+const char* ssid = "minh"; 
+const char* password = "123"; 
 
 // MQTT Broker
 const char* mqtt_server = "test.mosquitto.org";
