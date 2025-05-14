@@ -1,5 +1,4 @@
 #define BLYNK_PRINT Serial
-// You should get Auth Token in the Blynk App.
 #define BLYNK_TEMPLATE_ID           "TMPL6VHV8uDUc"
 #define BLYNK_TEMPLATE_NAME         "testBlynkMQ2"
 char BLYNK_AUTH_TOKEN[32]   =   "";
@@ -37,7 +36,6 @@ void button_press_short_callback(uint8_t button_id);
 void button_press_long_callback(uint8_t button_id);
 
 //----------------------Khai báo LCD1602---------------------------------
-// Create An LCD Object. Signals: [ RS, EN, D4, D5, D6, D7 ]
 #define LCD_RS  15
 #define LCD_EN  13
 #define LCD_D4  12
@@ -166,9 +164,6 @@ void setup() {
 void loop() {
      vTaskDelete(NULL);
 }
-
-//------------------------------------------------------------------------------
-//---------------------------Task Switch AP to STA -----------------------------
 
 //---------------------------If IP is Hitted in Browser ------------------------
 void D_AP_SER_Page() {
@@ -357,11 +352,6 @@ void myTimer() {
     int sensorVal = readMQ2();
     Blynk.virtualWrite(V0, readMQ2());  
 }
-//----------------------- Read Relay state from Blynk----------------------------
-// 0 -> RL1 = 0, RL2 = 0
-// 1 -> RL1 = 1, RL2 = 0
-// 2 -> RL1 = 0, RL2 = 1
-// 3 -> RL1 = 1, RL2 = 1
 BLYNK_WRITE(V1) {
   int relayState = param.asInt();
   switch(relayState) {
@@ -536,29 +526,7 @@ int checkSensor = 0;
 int buzzerON = 0;
 int sendNotificationsOnce = 0;
 void TaskMainDisplay(void *pvParameters) {
-    //----------- Khởi tạo LCD ------------------
     delay(10000);
-    // My_LCD.clear();
-    // LCDPrint(0,0, "WAIT FOR SENSORS",0 );
-    // LCDPrint(1,0, "TO START",0 );
-    // for(int i = 60; i >= 10 ; i --) {
-    //     My_LCD.setCursor(12, 1);
-    //     My_LCD.print(" ");
-    //     My_LCD.setCursor(13, 1);
-    //     My_LCD.print(i);
-    //     delay(1000);
-    // }  
-
-    // LCDPrint(0,0, "WAIT FOR SENSOR",0 );
-    // LCDPrint(1,0, "TO START",0 );
-    // for(int i = 9; i >= 0 ; i --) {
-    //     My_LCD.setCursor(13, 1);
-    //     My_LCD.print(" ");
-    //     My_LCD.setCursor(14, 1);
-    //     My_LCD.print(i);
-    //     delay(1000);
-    // } 
-
     My_LCD.clear();
     printRelayState();
     printMode();
@@ -703,8 +671,6 @@ void controlWindow(int onoff) {
 
 // ---------------------- Hàm điều khiển còi -----------------------------
 void buzzerBip() {
-    //digitalWrite(BUZZER, BUZZER_ON);delay(300);
-    //digitalWrite(BUZZER, BUZZER_OFF);
 }
 
 void buzzerWarning() {
