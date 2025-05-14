@@ -1,12 +1,3 @@
-/* Cách sử dụng
- Khai báo chân + pin ID + biến kiểu dữ liệu Button  // uint8_t buttonPinOK = 3;
-                                                    // #define BUTTON1_ID  1
-                                                    //  Button buttonOK;
- Init trong hàm setup                               // button_init(&buttonOK,buttonPinOK,BUTTON1_ID);
- Trong Main                                         //  handle_button(&buttonOK);
-*/
-
-
 typedef void (*button_pressshort_callback)(int);
 button_pressshort_callback pt_short = NULL;
 typedef void (*button_presslong_callback)(int);
